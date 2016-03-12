@@ -1,0 +1,25 @@
+<groups xmlns="http://www.i∫sdc.ro/wro">
+
+    <!-- Stripped down dependencies for the the embedded tracks -->
+    <group name="high-school-management-system-embedded">
+
+        <js minimize="false">/webjars/jquery/@jquery.version@/jquery.min.js</js>
+        <js minimize="false">/webjars/angularjs/@angularjs.version@/angular.min.js</js>
+    </group>
+
+    <!-- Dependencies for the full site -->
+    <group name="high-school-management-system">
+        <css minimize="false">/webjars/bootstrap/@bootstrap.version@/css/bootstrap.min.css</css>
+        <css minimize="false">/webjars//font-awesome/@fontawesome.version@/css/font-awesome.min.css</css>
+
+        <js minimize="false">/webjars/jquery/@jquery.version@/jquery.min.js</js>
+        <js minimize="false">/webjars/bootstrap/@bootstrap.version@/js/bootstrap.min.js</js>
+        <js minimize="false">/webjars/angularjs/@angularjs.version@/angular.min.js</js>
+        <js minimize="false">/webjars/angularjs/@angularjs.version@/angular-route.min.js</js>
+        <js minimize="false">/webjars/angular-ui-bootstrap/@angular-ui-bootstrap.version@/ui-bootstrap.min.js</js>
+        <js minimize="false">/webjars/angular-ui-bootstrap/@angular-ui-bootstrap.version@/ui-bootstrap-tpls.min.js</js>
+
+        <js>/js/app.js</js>
+        <js>/js/controllers.js</js>
+    </group>
+</groups>
