@@ -1,5 +1,14 @@
-(function (angular) {
-    angular.module("myApp.controllers", []);
-    angular.module("myApp.services", []);
-    angular.module("myApp", ["ngResource", "myApp.controllers", "myApp.services"]);
-}(angular));
+'use strict';
+
+angular
+    .module('highSchoolUIApp', ['ngResource', 'ngRoute', 'ngCookies', 'controllers'])
+    .config(function ($routeProvider) {
+        $routeProvider
+            .when('/', {
+                templateUrl: 'home.html',
+                controller: 'HomeCtrl'
+            })
+            .otherwise({
+                redirectTo: '/'
+            })
+    });
