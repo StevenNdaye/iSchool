@@ -9,9 +9,9 @@
 
     <!-- Dependencies for the full site -->
     <group name="iSchool">
+        <css>/css/main.css</css>
         <css minimize="false">/webjars/bootstrap/@bootstrap.version@/css/bootstrap.min.css</css>
         <css minimize="false">/webjars//font-awesome/@fontawesome.version@/css/font-awesome.min.css</css>
-
         <js minimize="false">/webjars/jquery/@jquery.version@/jquery.min.js</js>
         <js minimize="false">/webjars/bootstrap/@bootstrap.version@/js/bootstrap.min.js</js>
         <js minimize="false">/webjars/angularjs/@angularjs.version@/angular.min.js</js>

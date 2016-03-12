@@ -4,7 +4,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta content="Steven Ndaye" name="Author"/>
     <title>iSchool Application</title>
-
+    <base href="/">
     <link rel="stylesheet" type="text/css" href="/owr/iSchool.css"/>
 
     <script type="text/javascript" src="/owr/iSchool.js"></script>
@@ -25,8 +25,16 @@
     </div>
 </nav>
 <div class="container">
-    <div data-ng-view></div>
+    <div class="main_container" data-ng-view></div>
     <hr/>
+    <footer class="row">
+        <div class="col-xs-10 col-sm-11 vcenter">
+            <p>
+                &#160; &copy; {{ currentYear }}
+                <a href="mailto:stevenndaye@gmail.com">iSchool</a>
+            </p>
+        </div>
+    </footer>
 </div>
 </body>
 </html>
