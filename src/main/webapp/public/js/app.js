@@ -1,7 +1,7 @@
 'use strict';
 
-var highSchool = angular
-    .module('highSchool', [
+var iSchool = angular
+    .module('iSchool', [
         'ngRoute',
         'ui.bootstrap',
         'controllers'
