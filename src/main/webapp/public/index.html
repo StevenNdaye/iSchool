@@ -2,13 +2,12 @@
 <html data-ng-app="iSchool">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta content="Michael J. Simons" name="Author" />
+    <meta content="Michael J. Simons" name="Author"/>
     <title>biking.michael-simons.eu</title>
 
-    <link rel="icon"       type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" type="text/css"     href="/owr/biking2.css" />
+    <link rel="stylesheet" type="text/css" href="/owr/iSchool.css"/>
 
-    <script type="text/javascript" src="/owr/biking2.js"></script>
+    <script type="text/javascript" src="/owr/iSchool.js"></script>
 </head>
 
 <body role="document">
@@ -25,11 +24,16 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a data-ng-active-tab data-ng-href="/bikes"><span class="icons8-regular-biking"></span>&#160; Bikes</a></li>
-                <li><a data-ng-active-tab data-ng-href="/milages"><span class="icons8-combo-chart"></span>&#160; Milages</a></li>
-                <li><a data-ng-active-tab data-ng-href="/gallery"><span class="icons8-picture"></span>&#160; Gallery</a></li>
-                <li><a data-ng-active-tab data-ng-href="/tracks"><span class="icons8-waypoint-map"></span>&#160; Tracks</a></li>
-                <li><a data-ng-active-tab data-ng-href="/location"><span class="icons8-define-location"></span>&#160; Location</a></li>
+                <li><a data-ng-active-tab data-ng-href="/bikes"><span class="icons8-regular-biking"></span>&#160; Bikes</a>
+                </li>
+                <li><a data-ng-active-tab data-ng-href="/milages"><span class="icons8-combo-chart"></span>&#160; Milages</a>
+                </li>
+                <li><a data-ng-active-tab data-ng-href="/gallery"><span class="icons8-picture"></span>&#160; Gallery</a>
+                </li>
+                <li><a data-ng-active-tab data-ng-href="/tracks"><span class="icons8-waypoint-map"></span>&#160; Tracks</a>
+                </li>
+                <li><a data-ng-active-tab data-ng-href="/location"><span class="icons8-define-location"></span>&#160;
+                    Location</a></li>
                 <li><a data-ng-active-tab data-ng-href="/about">About</a></li>
             </ul>
         </div>
@@ -37,7 +41,7 @@
 </nav>
 <div class="container">
     <div data-ng-view></div>
-    <hr />
+    <hr/>
     <footer class="row">
         <div class="col-xs-10 col-sm-11 vcenter">
             <p>
@@ -45,11 +49,12 @@
                 <a href="http://michael-simons.eu">Michael Simons</a>
             </p>
         </div><!-- ignore additional whitespaces which would take up space
-		--><div class="col-xs-2 col-sm-1 vcenter">
-        <p>
-            <img alt="Biker Smilie" id="header_smilie" src="/img/biker.gif" />
-        </p>
-    </div>
+		-->
+        <div class="col-xs-2 col-sm-1 vcenter">
+            <p>
+                <img alt="Biker Smilie" id="header_smilie" src="/img/biker.gif"/>
+            </p>
+        </div>
     </footer>
 </div>
 <script type="text/javascript">
@@ -57,10 +62,13 @@
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-4558057-6']);
     _gaq.push(['_trackPageview']);
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
         ga.src = ('https:' === document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
     })();
     //]]>
 </script>

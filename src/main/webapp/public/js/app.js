@@ -46,4 +46,7 @@ var iSchool = angular
                 redirectTo: '/'
             });
         }
-    ]);
+    ])
+    .run(['$rootScope', function ($rootScope) {
+        $rootScope.currentYear = new Date().getFullYear();
+    }]);
