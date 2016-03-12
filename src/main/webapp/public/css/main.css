@@ -1,3 +1,29 @@
-.container > .main_container {
+.container-fluid > .main_container {
     margin-top: 60px;
+}
+
+.panel-heading .title {
+    font-weight: bolder;
+    margin-top: 25px;
+    margin-left: 20px;
+}
+
+.panel-green {
+    color: #5cb85c;
+}
+
+.panel-yellow {
+    color: #f0ad4e;
+}
+
+.panel-yellow > .panel-heading {
+    border-color: #f0ad4e;
+    color: #ffffff;
+    background-color: #f0ad4e;
+}
+
+.panel-green > .panel-heading {
+    border-color: #5cb85c;
+    color: #ffffff;
+    background-color: #5cb85c;
 }
