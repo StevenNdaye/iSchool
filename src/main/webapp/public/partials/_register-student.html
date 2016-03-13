@@ -1,1 +1,92 @@
-Register
+<div class="row">
+    <h1>Register a student</h1>
+
+    <form class="form-horizontal" novalidate name="form" role="form">
+        <div class="form-group">
+            <label for="firstName" class="col-sm-2 control-label">First Name</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="firstName" placeholder="First Name" ng-model="firstName">
+            </div>
+            <div class="col-lg-12 col-sm-12 col-xm-12"
+                 ng-show="(form.firstName.$touched || form.$submitted)">
+                <label class="control-label col-lg-2 col-sm-2 col-xm-2"></label>
+                <span class="text-danger col-lg-4 col-sm-4 col-xm-4"
+                      ng-show="form.firstName.$invalid">Please provide the first name</span>
+            </div>
+            <br/>
+        </div>
+        <div class="form-group">
+            <label for="surname" class="col-sm-2 control-label">Surname</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="surname" placeholder="Surname" ng-model="surname">
+            </div>
+            <div class="col-lg-12 col-sm-12 col-xm-12"
+                 ng-show="(form.surname.$touched || form.$submitted)">
+                <label class="control-label col-lg-2 col-sm-2 col-xm-2"></label>
+                <span class="text-danger col-lg-4 col-sm-4 col-xm-4"
+                      ng-show="form.surname.$invalid">Please provide the surname</span>
+            </div>
+            <br/>
+        </div>
+
+        <div class="form-group">
+            <label for="studentNumber" class="col-sm-2 control-label">Student Number</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="studentNumber" placeholder="Student Number"
+                       ng-model="studentNumber">
+            </div>
+            <div class="col-lg-12 col-sm-12 col-xm-12"
+                 ng-show="(form.studentNumber.$touched || form.$submitted)">
+                <label class="control-label col-lg-2 col-sm-2 col-xm-2"></label>
+                <span class="text-danger col-lg-4 col-sm-4 col-xm-4"
+                      ng-show="form.studentNumber.$invalid">Please provide the student number</span>
+            </div>
+            <br/>
+        </div>
+
+        <div class="form-group">
+            <label for="dob" class="col-sm-2 control-label">Date of birth</label>
+
+            <div class="col-sm-10">
+                <input type="date" class="form-control" id="dob" placeholder="Date of birth" ng-model="birthDate">
+            </div>
+            <div class="col-lg-12 col-sm-12 col-xm-12"
+                 ng-show="(form.birthDate.$touched || form.$submitted)">
+                <label class="control-label col-lg-2 col-sm-2 col-xm-2"></label>
+                <span class="text-danger col-lg-4 col-sm-4 col-xm-4"
+                      ng-show="form.birthDate.$invalid">Please provide the birth date</span>
+            </div>
+            <br/>
+        </div>
+
+        <div class="form-group">
+            <label for="reg_to" class="col-sm-2 control-label">Registered to</label>
+
+            <div class="col-sm-10">
+
+                <select id="reg_to" class="form-control dropdown dropdown-toggle" ng-model="registeredTo"
+                        name="registeredTo"
+                        ng-options="item for item in reg_classes track by item"
+                        required>
+                    <option value="" selected="selected">Select</option>
+                </select>
+            </div>
+            <div class="col-lg-12 col-sm-12 col-xm-12"
+                 ng-show="(form.reg_to.$touched || form.$submitted)">
+                <label class="control-label col-lg-2 col-sm-2 col-xm-2"></label>
+                <span class="text-danger col-lg-4 col-sm-4 col-xm-4" ng-show="form.reg_to.$invalid">Please select the class name</span>
+            </div>
+            <br/>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary btn-lg" ng-click="register()">Register</button>
+                <button type="submit" class="btn btn-default btn-lg" ng-click="goBack()">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>

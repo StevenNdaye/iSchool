@@ -2,6 +2,10 @@
     margin-top: 100px;
 }
 
+.panel-heading:hover {
+    cursor: pointer;
+}
+
 .panel-heading .title {
     font-weight: bolder;
     margin-top: 25px;
