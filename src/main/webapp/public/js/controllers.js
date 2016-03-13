@@ -30,17 +30,25 @@ controllers.controller('StudentRegistrationCtrl', ['$scope', '$http', '$interval
     };
 
     $scope.register = function () {
-        $scope.student = [{
+        $scope.student = {
             firstName: $scope.firstName,
             surname: $scope.surname,
             studentNumber: $scope.studentNumber,
             birthDate: $scope.birthDate,
             registeredTo: $scope.registeredTo
-        }];
+        };
 
         if ($scope.form.$valid) {
-            console.log($scope.student);
-        }else{
+            $http({
+                method: 'POST',
+                url: '/students',
+                data: $scope.student
+            }).success(function (data) {
+                console.log(data);
+            }).error(function (data, status) {
+                console.log(status);
+            });
+        } else {
             console.log($scope.student);
         }
     };
