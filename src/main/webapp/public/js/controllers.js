@@ -19,6 +19,7 @@ controllers.controller('IndexCtrl', ['$scope', '$http', '$interval', '$location'
 
 controllers.controller('StudentRegistrationCtrl', ['$scope', '$http', '$interval', '$location', function ($scope, $http, $interval, $location) {
     $scope.reg_classes = ["Class one", "Class two", "Class three", "Class four", "Class five", "Class six"];
+    $scope.regSuccess = false;
     $scope.selectedClass = undefined;
 
     $scope.handleSelectedItem = function (reg_class) {
@@ -44,7 +45,13 @@ controllers.controller('StudentRegistrationCtrl', ['$scope', '$http', '$interval
                 url: '/students',
                 data: $scope.student
             }).success(function (data) {
-                console.log(data);
+                $scope.regSuccess = true;
+                $scope.firstName='';
+                $scope.surname='';
+                $scope.studentNumber='';
+                $scope.birthDate='';
+                $scope.registeredTo='Select';
+
             }).error(function (data, status) {
                 console.log(status);
             });
