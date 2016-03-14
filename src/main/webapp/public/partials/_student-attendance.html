@@ -1,34 +1,56 @@
 <div class="row" ng-init="initialize()">
-    <h1>Student attendance</h1>
-    <table id="attendance" class="display table table-striped table-hover dt-responsive" cellspacing="0" width="100%">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Class</th>
-            <th>Student Nbr.</th>
-            <th>Att.</th>
-        </tr>
-        </thead>
-        <tfoot>
-        <tr>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Class</th>
-            <th>Student Nbr.</th>
-            <th>Att.</th>
-        </tr>
-        </tfoot>
+    <div class="row"><h1>Student attendance</h1> for <em>{{date | date:'yyyy-MM-dd'}}</em></div>
 
-        <tbody>
-        <tr ng-repeat="student in students">
-            <td>{{student.firstName}}</td>
-            <td>{{student.surname}}</td>
-            <td>{{student.registeredTo}}</td>
-            <td>{{student.studentNumber}}</td>
-            <td><input type="checkbox" data-toggle="toggle" data-on="Present" data-off="Absent"
-                       data-onstyle="success" data-offstyle="danger"></td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="row filter">
+        <span>Filter by </span>
+        <select class="form-control">
+            <option value="all">All</option>
+            <option value="one">Class one</option>
+            <option value="two">Class two</option>
+            <option value="three">Class three</option>
+            <option value="four">Class four</option>
+            <option value="five">Class five</option>
+            <option value="six">Class six</option>
+
+        </select>
+        <table id="attendance" class="display table table-striped table-hover dt-responsive" cellspacing="0"
+               width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Class</th>
+                <th>Student Nbr.</th>
+                <th>Att.</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Class</th>
+                <th>Student Nbr.</th>
+                <th>Att.</th>
+            </tr>
+            </tfoot>
+
+            <tbody>
+            <tr ng-repeat="student in students">
+                <td>{{student.firstName}}</td>
+                <td>{{student.surname}}</td>
+                <td>{{student.registeredTo}}</td>
+                <td>{{student.studentNumber}}</td>
+                <td><input type="checkbox" data-toggle="toggle" data-on="Present" data-off="Absent"
+                           data-onstyle="success" data-offstyle="danger"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary btn-lg" ng-click="processAttendance()">Process</button>
+                <button type="submit" class="btn btn-default btn-lg" ng-click="goBack()">Cancel</button>
+            </div>
+        </div>
+    </div>
 </div>

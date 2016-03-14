@@ -63,11 +63,20 @@ controllers.controller('StudentRegistrationCtrl', ['$scope', '$http', '$interval
 
 controllers.controller('StudentAttendanceCtrl', ['$scope', '$http', '$interval', '$location', function ($scope, $http, $interval, $location) {
 
+    $scope.date = new Date();
     $scope.initialize = function () {
         $http.get('/students').success(function (data) {
             $scope.students = data;
         });
     };
+
+    $scope.goBack = function () {
+        $location.path('/');
+    };
+
+    $scope.processAttendance = function () {
+
+    }
 
 }]);
 
