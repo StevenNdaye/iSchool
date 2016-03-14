@@ -35,10 +35,11 @@
         <java.version>1.8</java.version>
         <junit.version>4.12</junit.version>
         <bootstrap.version>3.3.6</bootstrap.version>
-        <jquery.version>2.2.1</jquery.version>
+        <jquery.version>1.11.1</jquery.version>
         <angularjs.version>1.5.0</angularjs.version>
         <angular-ui-bootstrap.version>0.10.0</angular-ui-bootstrap.version>
         <fontawesome.version>4.5.0</fontawesome.version>
+        <datatable.version>1.10.11</datatable.version>
 
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
@@ -103,6 +104,11 @@
             <groupId>org.webjars</groupId>
             <artifactId>angularjs</artifactId>
             <version>${angularjs.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>datatables</artifactId>
+            <version>${datatable.version}</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
