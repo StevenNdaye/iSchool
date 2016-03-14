@@ -17,13 +17,12 @@
     <div class="row attendance-table" ng-hide="attendanceList.length == 0">
         <span>Filter by </span>
         <select class="form-control filter" ng-model="filteredBy" ng-change="updateGrid()">
-            <option value="all">All</option>
-            <option value="one">Class one</option>
-            <option value="two">Class two</option>
-            <option value="three">Class three</option>
-            <option value="four">Class four</option>
-            <option value="five">Class five</option>
-            <option value="six">Class six</option>
+            <option value="Class one" selected="selected">Class one</option>
+            <option value="Class two">Class two</option>
+            <option value="Class three">Class three</option>
+            <option value="Class four">Class four</option>
+            <option value="Class five">Class five</option>
+            <option value="Class six">Class six</option>
 
         </select>
         <table id="attendance" class="display table table-striped table-hover dt-responsive" cellspacing="0"

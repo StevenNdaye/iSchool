@@ -66,7 +66,21 @@ controllers.controller('StudentAttendanceCtrl', ['$scope', '$http', '$interval',
     $scope.attendanceList = [];
 
     $scope.initialize = function () {
-        getStudents('/students');
+        $http.get('/students').success(function (data) {
+            if (data.length > 0) {
+                _.each(data, function (student) {
+                    var attendance = {
+                        student: student,
+                        presence: false,
+                        date: $scope.date
+                    };
+
+                    $scope.attendanceList.push(attendance);
+                });
+            } else {
+                $scope.attendanceList = [];
+            }
+        });
     };
 
     $scope.goBack = function () {
@@ -89,9 +103,10 @@ controllers.controller('StudentAttendanceCtrl', ['$scope', '$http', '$interval',
 
     };
 
-    function getStudents(url) {
-        $http.get(url).success(function (data) {
+    $scope.updateGrid = function () {
+        $http.get('/students?className=' + $scope.filteredBy).success(function (data) {
             if (data.length > 0) {
+                $scope.attendanceList = [];
                 _.each(data, function (student) {
                     var attendance = {
                         student: student,
@@ -101,12 +116,10 @@ controllers.controller('StudentAttendanceCtrl', ['$scope', '$http', '$interval',
 
                     $scope.attendanceList.push(attendance);
                 });
+            } else {
+                $scope.attendanceList = [];
             }
         });
-    }
-
-    $scope.updateGrid = function () {
-        getStudents('/students?className=' + $scope.filteredBy);
     };
 
 }]);
