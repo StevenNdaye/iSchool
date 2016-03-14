@@ -1,7 +1,7 @@
 <div class="row" ng-init="initialize()">
     <div class="row"><h1>Student attendance</h1> for <em>{{date | date:'yyyy-MM-dd'}}</em></div>
 
-    <div class="row" ng-show="students.length == 0">
+    <div class="row" ng-show="attendanceList.length == 0">
         <div class="alert alert-success">
             <strong>There are no registered students. Go to <a ng-click="goBack()">home
                 page</a> and register students.</strong>
@@ -14,9 +14,9 @@
                     page</a></strong>
         </div>
     </div>
-    <div class="row attendance-table" ng-hide="students.length == 0">
+    <div class="row attendance-table" ng-hide="attendanceList.length == 0">
         <span>Filter by </span>
-        <select class="form-control filter">
+        <select class="form-control filter" ng-model="filteredBy" ng-change="updateGrid()">
             <option value="all">All</option>
             <option value="one">Class one</option>
             <option value="two">Class two</option>
