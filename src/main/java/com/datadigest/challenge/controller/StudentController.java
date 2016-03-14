@@ -3,10 +3,7 @@ package com.datadigest.challenge.controller;
 import com.datadigest.challenge.entity.Student;
 import com.datadigest.challenge.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,6 +22,11 @@ public class StudentController {
     @RequestMapping(method = RequestMethod.GET)
     public List<Student> findStudents() {
         return studentService.getAll();
+    }
+
+    @RequestMapping(method = RequestMethod.GET, params = "className")
+    public List<Student> getStudentByClassName(@RequestParam("className") String className) {
+        return studentService.getStudentByClassName(className);
     }
 
 }

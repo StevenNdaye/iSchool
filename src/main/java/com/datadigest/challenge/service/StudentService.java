@@ -20,4 +20,8 @@ public class StudentService {
     public List<Student> getAll() {
         return studentRepository.findAll();
     }
+
+    public List<Student> getStudentByClassName(String className) {
+        return studentRepository.findByRegisteredTo(className);
+    }
 }
