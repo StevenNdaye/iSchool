@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" ng-init="initialize()">
     <h1>Student attendance</h1>
     <table id="attendance" class="display table table-striped table-hover dt-responsive" cellspacing="0" width="100%">
         <thead>
@@ -6,7 +6,7 @@
             <th>Name</th>
             <th>Surname</th>
             <th>Class</th>
-            <th>Student Nbr</th>
+            <th>Student Nbr.</th>
             <th>Att.</th>
         </tr>
         </thead>
@@ -15,60 +15,20 @@
             <th>Name</th>
             <th>Surname</th>
             <th>Class</th>
-            <th>Student Nbr</th>
+            <th>Student Nbr.</th>
             <th>Att.</th>
         </tr>
         </tfoot>
 
         <tbody>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td><input type="checkbox" data-toggle="toggle" data-on="Ready" data-off="Not Ready"
-                       data-onstyle="success" data-offstyle="danger"></td>
-        </tr>
-        <tr>
-            <td>Garrett Winters</td>
-            <td>Accountant</td>
-            <td>Tokyo</td>
-            <td>63</td>
+        <tr ng-repeat="student in students">
+            <td>{{student.firstName}}</td>
+            <td>{{student.surname}}</td>
+            <td>{{student.registeredTo}}</td>
+            <td>{{student.studentNumber}}</td>
             <td><input type="checkbox" data-toggle="toggle" data-on="Present" data-off="Absent"
                        data-onstyle="success" data-offstyle="danger"></td>
         </tr>
-        <tr>
-            <td>Ashton Cox</td>
-            <td>Junior Technical Author</td>
-            <td>San Francisco</td>
-            <td>66</td>
-            <td><input type="checkbox" data-toggle="toggle" data-on="Present" data-off="Absent"
-                       data-onstyle="success" data-offstyle="danger"></td>
-        </tr>
-        <tr>
-            <td>Cedric Kelly</td>
-            <td>Senior Javascript Developer</td>
-            <td>Edinburgh</td>
-            <td>22</td>
-            <td><input type="checkbox" data-toggle="toggle" data-on="Present" data-off="Absent"
-                       data-onstyle="success" data-offstyle="danger"></td>
-        </tr>
-        <tr>
-            <td>Airi Satou</td>
-            <td>Accountant</td>
-            <td>Tokyo</td>
-            <td>33</td>
-            <td><input type="checkbox" data-toggle="toggle" data-on="Present" data-off="Absent"
-                       data-onstyle="success" data-offstyle="danger"></td>
-        </tr>
-        <!--<tr ng-repeat="student in students">-->
-        <!--<td>{{student.firstName}}</td>-->
-        <!--<td>{{student.surname}}</td>-->
-        <!--<td>{{student.registeredTo}}</td>-->
-        <!--<td>{{student.studentNumber}}</td>-->
-        <!--<td><input type="checkbox" checked data-toggle="toggle" data-on="Present" data-off="Absent"-->
-        <!--data-onstyle="success" data-offstyle="danger"></td>-->
-        <!--</tr>-->
         </tbody>
     </table>
 </div>

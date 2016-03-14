@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/students")
 public class StudentController {
@@ -18,6 +20,11 @@ public class StudentController {
     @RequestMapping(method = RequestMethod.POST)
     public Student addStudent(@RequestBody Student student) {
         return studentService.addStudent(student);
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public List<Student> findStudents() {
+        return studentService.getAll();
     }
 
 }

@@ -46,11 +46,11 @@ controllers.controller('StudentRegistrationCtrl', ['$scope', '$http', '$interval
                 data: $scope.student
             }).success(function (data) {
                 $scope.regSuccess = true;
-                $scope.firstName='';
-                $scope.surname='';
-                $scope.studentNumber='';
-                $scope.birthDate='';
-                $scope.registeredTo='Select';
+                $scope.firstName = '';
+                $scope.surname = '';
+                $scope.studentNumber = '';
+                $scope.birthDate = '';
+                $scope.registeredTo = 'Select';
 
             }).error(function (data, status) {
                 console.log(status);
@@ -62,6 +62,12 @@ controllers.controller('StudentRegistrationCtrl', ['$scope', '$http', '$interval
 }]);
 
 controllers.controller('StudentAttendanceCtrl', ['$scope', '$http', '$interval', '$location', function ($scope, $http, $interval, $location) {
+
+    $scope.initialize = function () {
+        $http.get('/students').success(function (data) {
+            $scope.students = data;
+        });
+    };
 
 }]);
 
