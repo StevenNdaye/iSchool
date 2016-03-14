@@ -1,9 +1,22 @@
 <div class="row" ng-init="initialize()">
     <div class="row"><h1>Student attendance</h1> for <em>{{date | date:'yyyy-MM-dd'}}</em></div>
 
-    <div class="row filter">
+    <div class="row" ng-show="students.length == 0">
+        <div class="alert alert-success">
+            <strong>There are no registered students. Go to <a ng-click="goBack()">home
+                page</a> and register students.</strong>
+        </div>
+    </div>
+    <div class="row" ng-show="listSubmitted">
+        <div class="alert alert-success">
+            <strong>Attendance list successfully saved. You can still change students' attendance and submit or you can
+                go to the <a ng-click="goBack()">home
+                    page</a></strong>
+        </div>
+    </div>
+    <div class="row attendance-table" ng-hide="students.length == 0">
         <span>Filter by </span>
-        <select class="form-control">
+        <select class="form-control filter">
             <option value="all">All</option>
             <option value="one">Class one</option>
             <option value="two">Class two</option>
@@ -35,20 +48,22 @@
             </tfoot>
 
             <tbody>
-            <tr ng-repeat="student in students">
-                <td>{{student.firstName}}</td>
-                <td>{{student.surname}}</td>
-                <td>{{student.registeredTo}}</td>
-                <td>{{student.studentNumber}}</td>
-                <td><input type="checkbox" data-toggle="toggle" data-on="Present" data-off="Absent"
-                           data-onstyle="success" data-offstyle="danger"></td>
+            <tr ng-repeat="attendance in attendanceList">
+                <td>{{attendance.student.firstName}}</td>
+                <td>{{attendance.student.surname}}</td>
+                <td>{{attendance.student.registeredTo}}</td>
+                <td>{{attendance.student.studentNumber}}</td>
+                <td><input type="checkbox" ng-model="attendance.presence" ng-true-value="true" ng-false-value="false">
+                </td>
             </tr>
             </tbody>
         </table>
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-primary btn-lg" ng-click="processAttendance()">Process</button>
+                <button type="submit" class="btn btn-primary btn-lg" ng-click="processAttendance(attendanceList)">
+                    Process
+                </button>
                 <button type="submit" class="btn btn-default btn-lg" ng-click="goBack()">Cancel</button>
             </div>
         </div>

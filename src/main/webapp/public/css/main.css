@@ -32,7 +32,10 @@
     background-color: #5cb85c;
 }
 
-.filter {
+.attendance-table {
     margin-top: 15px;
-    margin-bottom: 15px;
+}
+
+.filter {
+    margin-bottom: 10px;
 }

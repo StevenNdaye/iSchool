@@ -56,7 +56,6 @@ controllers.controller('StudentRegistrationCtrl', ['$scope', '$http', '$interval
                 console.log(status);
             });
         } else {
-            console.log($scope.student);
         }
     };
 }]);
@@ -64,9 +63,18 @@ controllers.controller('StudentRegistrationCtrl', ['$scope', '$http', '$interval
 controllers.controller('StudentAttendanceCtrl', ['$scope', '$http', '$interval', '$location', function ($scope, $http, $interval, $location) {
 
     $scope.date = new Date();
+    $scope.attendanceList = [];
     $scope.initialize = function () {
         $http.get('/students').success(function (data) {
-            $scope.students = data;
+            _.each(data, function (student) {
+                var attendance = {
+                    student: student,
+                    presence: false,
+                    date: $scope.date
+                };
+
+                $scope.attendanceList.push(attendance);
+            });
         });
     };
 
@@ -74,9 +82,21 @@ controllers.controller('StudentAttendanceCtrl', ['$scope', '$http', '$interval',
         $location.path('/');
     };
 
-    $scope.processAttendance = function () {
+    $scope.processAttendance = function (attendanceList) {
+        $scope.attendanceList = attendanceList;
 
-    }
+        $http({
+            method: 'POST',
+            url: '/attendance',
+            headers: {'Content-Type': 'application/json'},
+            data: $scope.attendanceList
+        }).success(function (data) {
+            $scope.listSubmitted = true;
+        }).error(function (data, status) {
+            console.log(status);
+        });
+
+    };
 
 }]);
 

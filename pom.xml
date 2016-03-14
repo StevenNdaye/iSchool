@@ -40,6 +40,7 @@
         <angular-ui-bootstrap.version>0.10.0</angular-ui-bootstrap.version>
         <fontawesome.version>4.5.0</fontawesome.version>
         <datatable.version>1.10.11</datatable.version>
+        <underscore.version>1.8.3</underscore.version>
 
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
@@ -112,6 +113,11 @@
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
+            <artifactId>underscorejs</artifactId>
+            <version>${underscore.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
             <artifactId>angular-ui-bootstrap</artifactId>
             <version>${angular-ui-bootstrap.version}</version>
             <exclusions>
@@ -152,8 +158,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <target>${java.version}</target>
-                    <source>${java.version}</source>
+                    <target>1.5</target>
+                    <source>1.5</source>
                     <encoding>${project.build.sourceEncoding}</encoding>
                     <compilerArgs>
                         <arg>-parameters</arg>

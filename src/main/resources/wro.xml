@@ -22,6 +22,7 @@
         <js minimize="false">/webjars/angular-ui-bootstrap/@angular-ui-bootstrap.version@/ui-bootstrap-tpls.min.js</js>
         <js minimize="false">/webjars/datatables/@datatable.version@/js/jquery.dataTables.min.js</js>
         <js minimize="false">/webjars/datatables/@datatable.version@/js/dataTables.bootstrap.min.js</js>
+        <js minimize="false">/webjars/underscorejs/@underscore.version@/underscore-min.js</js>
 
         <js>/js/app.js</js>
         <js>/js/controllers.js</js>
