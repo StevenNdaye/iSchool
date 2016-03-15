@@ -2,7 +2,7 @@ package com.datadigest.challenge.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Embeddable
@@ -18,7 +18,7 @@ public class Student implements Serializable {
     @Column
     private String studentNumber;
     @Column
-    private Date birthDate;
+    private LocalDate birthDate;
     @Column
     private String registeredTo;
 
@@ -54,11 +54,11 @@ public class Student implements Serializable {
         this.studentNumber = studentNumber;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
