@@ -3,7 +3,8 @@
 
     <form class="form-horizontal" novalidate name="form" role="form" ng-submit="register()">
 
-        <div class="alert alert-success" ng-show="regSuccess">
+        <div class="alert alert-success fade" ng-show="regSuccess">
+            <button type="button" class="close" data-dismiss="alert">×</button>
             <strong>Complete!</strong> Student information successfully saved. Register more or go to <a ng-click="goBack()">home
             page</a>
         </div>

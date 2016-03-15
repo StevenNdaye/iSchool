@@ -2,13 +2,17 @@
     <div class="row"><h1>Student attendance</h1> for <em>{{date | date:'yyyy-MM-dd'}}</em></div>
 
     <div class="row" ng-show="attendanceList.length == 0">
-        <div class="alert alert-success">
+        <div class="alert alert-success alert-dismissible fade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert">×</button>
             <strong>There are no registered students. Go to <a ng-click="goBack()">home
                 page</a> and register students.</strong>
         </div>
     </div>
     <div class="row" ng-show="listSubmitted">
-        <div class="alert alert-success">
+        <div class="alert alert-success fade">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             <strong>Attendance list successfully saved. You can still change students' attendance and submit or you can
                 go to the <a ng-click="goBack()">home
                     page</a></strong>
@@ -59,7 +63,7 @@
         </table>
 
         <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
+            <div class="col-sm-12">
                 <button type="submit" class="btn btn-primary btn-lg" ng-click="processAttendance(attendanceList)">
                     Process
                 </button>

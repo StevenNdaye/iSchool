@@ -1,4 +1,51 @@
 <div class="row">
     <h1>Reports</h1>
 
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12"><span>Select a class</span>
+            <select class="form-control filter" ng-model="className" ng-change="handleClassSelection()">
+                <option value="Class one" selected="selected">Class one</option>
+                <option value="Class two">Class two</option>
+                <option value="Class three">Class three</option>
+                <option value="Class four">Class four</option>
+                <option value="Class five">Class five</option>
+                <option value="Class six">Class six</option>
+
+            </select>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12" ng-show="showReportType"><span>What type of report do you want?</span>
+            <select class="form-control filter" ng-model="reportType" ng-change="handleReportType()">
+                <option value="daily_report" selected="selected">Daily Report</option>
+                <option value="termsReport">Terms Report</option>
+            </select>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12" ng-show="showDate"><span>Select a date</span>
+            <input type="date" ng-model="selectedDate" ng-click="handleDateSelection()"/>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12" ng-show="showTerms"><span>Choose terms</span>
+            <select class="form-control filter" ng-model="termSelected" ng-change="handleTermChoice()">
+                <option value="firstTerm" selected="selected">First Term</option>
+                <option value="secondTerm">Second Term</option>
+                <option value="threeTerm">Third Term</option>
+                <option value="fourTerm">Four Term</option>
+            </select>
+        </div>
+
+        <div class="form-group viewReport">
+            <div class="col-sm-12">
+                <button type="submit" class="btn btn-primary btn-lg" ng-disabled="canNotViewReport" ng-click="viewReport()">
+                    View report
+                </button>
+                <button type="submit" class="btn btn-default btn-lg" ng-click="goBack()">Cancel</button>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
 </div>

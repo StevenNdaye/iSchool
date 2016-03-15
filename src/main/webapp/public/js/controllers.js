@@ -126,5 +126,52 @@ controllers.controller('StudentAttendanceCtrl', ['$scope', '$http', '$interval',
 
 controllers.controller('ReportsCtrl', ['$scope', '$http', '$interval', '$location', function ($scope, $http, $interval, $location) {
 
+    $scope.showReportType = false;
+    $scope.showDate = false;
+    $scope.showTerms = false;
+    $scope.canNotViewReport = true;
+    var classToReport, reportType;
+
+    $scope.handleClassSelection = function () {
+        $scope.showReportType = true;
+        classToReport = $scope.className;
+    };
+
+    $scope.handleReportType = function () {
+        reportType = $scope.reportType;
+
+        if (reportType == 'daily_report') {
+            $scope.showDate = true;
+            $scope.showTerms = false;
+
+        } else if (reportType == 'termsReport') {
+            $scope.showTerms = true;
+            $scope.showDate = false;
+            $scope.canNotViewReport = false;
+        }
+    };
+
+    $scope.handleTermChoice = function () {
+        $scope.canNotViewReport = false;
+    };
+
+    $scope.handleDateSelection = function () {
+        $scope.canNotViewReport = false;
+    };
+
+    $scope.viewReport = function () {
+        if ($scope.showDate == true) {
+            var selectedDate = $scope.selectedDate;
+            //query for daily report by passing classToReport and selectedDate
+        } else if ($scope.showTerms == true) {
+            var selectedTerm = $scope.termSelected;
+            //query for term term report by passing the classToReport and selectedTerm
+        }
+    };
+
+    $scope.goBack = function () {
+        $location.path('/');
+    };
+
 }]);
 
