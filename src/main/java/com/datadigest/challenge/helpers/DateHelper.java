@@ -1,33 +1,34 @@
 package com.datadigest.challenge.helpers;
 
-import java.time.LocalDate;
-import java.time.Month;
-import java.time.Year;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class DateHelper {
 
 
-    public static Map<String, LocalDate> getDatesBasedOnTerm(int term) {
+    public static Map<String, Date> getDatesBasedOnTerm(int term) {
 
-        Map<Integer, Map<String, LocalDate>> terms = new HashMap<>();
-        terms.put(1, getTerm(LocalDate.of(Year.now().getValue(), Month.JANUARY, 13),
-                LocalDate.of(Year.now().getValue(), Month.MARCH, 18)));
-        terms.put(2, getTerm(LocalDate.of(Year.now().getValue(), Month.APRIL, 5),
-                LocalDate.of(Year.now().getValue(), Month.JUNE, 24)));
-        terms.put(3, getTerm(LocalDate.of(Year.now().getValue(), Month.JULY, 18),
-                LocalDate.of(Year.now().getValue(), Month.SEPTEMBER, 30)));
-        terms.put(4, getTerm(LocalDate.of(Year.now().getValue(), Month.OCTOBER, 10),
-                LocalDate.of(Year.now().getValue(), Month.DECEMBER, 7)));
+        Map<Integer, Map<String, Date>> terms = new HashMap<>();
+        terms.put(1, getTerm(new GregorianCalendar(getCurrentYear(), Calendar.JANUARY, 13).getTime(),
+                new GregorianCalendar(getCurrentYear(), Calendar.MARCH, 18).getTime()));
+        terms.put(2, getTerm(new GregorianCalendar(getCurrentYear(), Calendar.APRIL, 5).getTime(),
+                new GregorianCalendar(getCurrentYear(), Calendar.JUNE, 24).getTime()));
+        terms.put(3, getTerm(new GregorianCalendar(getCurrentYear(), Calendar.JULY, 1).getTime(),
+                new GregorianCalendar(getCurrentYear(), Calendar.SEPTEMBER, 30).getTime()));
+        terms.put(4, getTerm(new GregorianCalendar(getCurrentYear(), Calendar.OCTOBER, 10).getTime(),
+                new GregorianCalendar(getCurrentYear(), Calendar.DECEMBER, 7).getTime()));
 
         return terms.get(term);
     }
 
-    private static Map<String, LocalDate> getTerm(final LocalDate startDate, final LocalDate endDate) {
-        return new HashMap<String, LocalDate>() {{
+    private static Map<String, Date> getTerm(final Date startDate, final Date endDate) {
+        return new HashMap<String, Date>() {{
             put("startDate", startDate);
             put("endDate", endDate);
         }};
+    }
+
+    private static int getCurrentYear() {
+        Calendar now = Calendar.getInstance();
+        return now.get(Calendar.YEAR);
     }
 }

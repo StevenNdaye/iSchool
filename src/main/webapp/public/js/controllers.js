@@ -163,6 +163,8 @@ controllers.controller('ReportsCtrl', ['$scope', '$http', '$interval', '$locatio
         if ($scope.showDate == true) {
             var selectedDate = $scope.selectedDate;
             //query for daily report by passing classToReport and selectedDate
+            console.log(selectedDate);
+            console.log(classToReport);
             $http.get('/attendance?className=' + classToReport + '&attendanceDate=' + selectedDate).success(function (data) {
                 if (data.length > 0) {
                     console.log(data);
@@ -171,6 +173,8 @@ controllers.controller('ReportsCtrl', ['$scope', '$http', '$interval', '$locatio
             });
         } else if ($scope.showTerms == true) {
             var selectedTerm = $scope.termSelected;
+            console.log(selectedTerm);
+            console.log(classToReport);
             //query for term term report by passing the classToReport and selectedTerm
             $http.get('/attendance?className=' + classToReport + '&term=' + selectedTerm).success(function (data) {
                 if (data.length > 0) {

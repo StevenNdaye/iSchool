@@ -2,7 +2,7 @@ package com.datadigest.challenge.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 public class Attendance implements Serializable {
@@ -18,7 +18,7 @@ public class Attendance implements Serializable {
     @Column
     private boolean presence;
     @Column
-    private LocalDate date;
+    private Date date;
 
     public int getId() {
         return id;
@@ -44,11 +44,11 @@ public class Attendance implements Serializable {
         this.presence = presence;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 }

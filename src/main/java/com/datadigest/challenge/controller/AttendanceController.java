@@ -1,12 +1,10 @@
 package com.datadigest.challenge.controller;
 
 import com.datadigest.challenge.entity.Attendance;
-import com.datadigest.challenge.entity.Student;
 import com.datadigest.challenge.service.AttendanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -23,7 +21,7 @@ public class AttendanceController {
     }
 
     @RequestMapping(method = RequestMethod.GET, params = {"className", "attendanceDate"})
-    public List<Attendance> getAttendanceListForASpecificDate(@RequestParam("className") String className, @RequestParam("attendanceDate") LocalDate attendanceDate) {
+    public List<Attendance> getAttendanceListForASpecificDate(@RequestParam("className") String className, @RequestParam("attendanceDate") Date attendanceDate) {
         return attendanceService.getAttendanceListBy(className, attendanceDate);
     }
 
