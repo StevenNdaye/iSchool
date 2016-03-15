@@ -22,12 +22,12 @@ public class AttendanceService {
         return attendanceRepository.save(attendanceList);
     }
 
-    public List<Attendance> getAttendanceListBy(LocalDate attendanceDate) {
-        return attendanceRepository.findByDate(attendanceDate);
+    public List<Attendance> getAttendanceListBy(String className, LocalDate attendanceDate) {
+        return attendanceRepository.findByStudentRegisteredToAndDate(className, attendanceDate);
     }
 
-    public List<Attendance> getAttendanceListBy(int term) {
+    public List<Attendance> getAttendanceListBy(String className, int term) {
         Map<String, LocalDate> datesBasedOnTerm = DateHelper.getDatesBasedOnTerm(term);
-        return attendanceRepository.findByDateBetween(datesBasedOnTerm.get("startDate"), datesBasedOnTerm.get("endDate"));
+        return attendanceRepository.findByStudentRegisteredByAndDateBetween(className, datesBasedOnTerm.get("startDate"), datesBasedOnTerm.get("endDate"));
     }
 }

@@ -22,14 +22,14 @@ public class AttendanceController {
         return attendanceService.processAttendance(attendanceList);
     }
 
-    @RequestMapping(method = RequestMethod.GET, params = "attendanceDate")
-    public List<Attendance> getAttendanceListForASpecificDate(@RequestParam("attendanceDate") LocalDate attendanceDate) {
-        return attendanceService.getAttendanceListBy(attendanceDate);
+    @RequestMapping(method = RequestMethod.GET, params = {"className", "attendanceDate"})
+    public List<Attendance> getAttendanceListForASpecificDate(@RequestParam("className") String className, @RequestParam("attendanceDate") LocalDate attendanceDate) {
+        return attendanceService.getAttendanceListBy(className, attendanceDate);
     }
 
-    @RequestMapping(method = RequestMethod.GET, params = "term")
-    public List<Attendance> getAttendanceListByTerm(@RequestParam("term") int term) {
-        return attendanceService.getAttendanceListBy(term);
+    @RequestMapping(method = RequestMethod.GET, params = {"className", "term"})
+    public List<Attendance> getAttendanceListByTerm(@RequestParam("className") String className, @RequestParam("term") int term) {
+        return attendanceService.getAttendanceListBy(className, term);
     }
 
 
