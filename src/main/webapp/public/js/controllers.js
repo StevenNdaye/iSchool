@@ -60,10 +60,12 @@ controllers.controller('StudentRegistrationCtrl', ['$scope', '$http', '$interval
     };
 }]);
 
-controllers.controller('StudentAttendanceCtrl', ['$scope', '$http', '$interval', '$location', function ($scope, $http, $interval, $location) {
+controllers.controller('StudentAttendanceCtrl', ['$scope', '$http', '$interval', '$location', '$filter', function ($scope, $http, $interval, $location, $filter) {
 
     $scope.date = new Date();
+    var _date = $filter('date')(new Date($scope.date), 'yyyy-MM-dd');
     $scope.attendanceList = [];
+    $scope.listSubmitted = false;
 
     $scope.initialize = function () {
         $http.get('/students').success(function (data) {
@@ -72,7 +74,7 @@ controllers.controller('StudentAttendanceCtrl', ['$scope', '$http', '$interval',
                     var attendance = {
                         student: student,
                         presence: false,
-                        date: $scope.date
+                        date: _date
                     };
 
                     $scope.attendanceList.push(attendance);
@@ -111,7 +113,7 @@ controllers.controller('StudentAttendanceCtrl', ['$scope', '$http', '$interval',
                     var attendance = {
                         student: student,
                         presence: false,
-                        date: $scope.date
+                        date: _date
                     };
 
                     $scope.attendanceList.push(attendance);
@@ -124,7 +126,7 @@ controllers.controller('StudentAttendanceCtrl', ['$scope', '$http', '$interval',
 
 }]);
 
-controllers.controller('ReportsCtrl', ['$scope', '$http', '$interval', '$location', function ($scope, $http, $interval, $location) {
+controllers.controller('ReportsCtrl', ['$scope', '$http', '$interval', '$location', '$filter', function ($scope, $http, $interval, $location, $filter) {
 
     $scope.showReportType = false;
     $scope.showDate = false;
@@ -161,11 +163,8 @@ controllers.controller('ReportsCtrl', ['$scope', '$http', '$interval', '$locatio
 
     $scope.viewReport = function () {
         if ($scope.showDate == true) {
-            var selectedDate = $scope.selectedDate;
-            //query for daily report by passing classToReport and selectedDate
-            console.log(selectedDate);
-            console.log(classToReport);
-            $http.get('/attendance?className=' + classToReport + '&attendanceDate=' + selectedDate).success(function (data) {
+            var _date = $filter('date')(new Date($scope.selectedDate), 'yyyy-MM-dd');
+            $http.get('/attendance?className=' + classToReport + '&attendanceDate=' + _date).success(function (data) {
                 if (data.length > 0) {
                     console.log(data);
                 } else {
@@ -173,9 +172,6 @@ controllers.controller('ReportsCtrl', ['$scope', '$http', '$interval', '$locatio
             });
         } else if ($scope.showTerms == true) {
             var selectedTerm = $scope.termSelected;
-            console.log(selectedTerm);
-            console.log(classToReport);
-            //query for term term report by passing the classToReport and selectedTerm
             $http.get('/attendance?className=' + classToReport + '&term=' + selectedTerm).success(function (data) {
                 if (data.length > 0) {
                     console.log(data);

@@ -1,5 +1,7 @@
 package com.datadigest.challenge.helpers;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class DateHelper {
@@ -18,6 +20,17 @@ public class DateHelper {
                 new GregorianCalendar(getCurrentYear(), Calendar.DECEMBER, 7).getTime()));
 
         return terms.get(term);
+    }
+
+    public static Date toDate(String attendanceDate) {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = null;
+        try {
+            date = formatter.parse(attendanceDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
     }
 
     private static Map<String, Date> getTerm(final Date startDate, final Date endDate) {

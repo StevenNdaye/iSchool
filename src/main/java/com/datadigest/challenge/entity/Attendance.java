@@ -17,6 +17,8 @@ public class Attendance implements Serializable {
 
     @Column
     private boolean presence;
+
+    @Temporal(TemporalType.DATE)
     @Column
     private Date date;
 

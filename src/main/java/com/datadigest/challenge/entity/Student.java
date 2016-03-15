@@ -17,6 +17,8 @@ public class Student implements Serializable {
     private String surname;
     @Column
     private String studentNumber;
+    
+    @Temporal(TemporalType.DATE)
     @Column
     private Date birthDate;
     @Column
