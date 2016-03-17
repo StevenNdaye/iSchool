@@ -14,14 +14,15 @@
             </select>
         </div>
 
-        <div class="col-lg-12 col-md-12 col-sm-12" ng-show="showReportType"><span>What type of report do you want?</span>
+        <div class="col-lg-12 col-md-12 col-sm-12" ng-show="showReportType">
+            <span>What type of report do you want?</span>
             <select class="form-control filter" ng-model="reportType" ng-change="handleReportType()">
                 <option value="daily_report" selected="selected">Daily Report</option>
                 <option value="termsReport">Terms Report</option>
             </select>
         </div>
 
-        <div class="col-lg-12 col-md-12 col-sm-12" ng-show="showDate"><span>Select a date</span>
+        <div class="col-lg-12 col-md-12 col-sm-12 date" ng-show="showDate"><span>Select a date</span>
             <input type="date" ng-model="selectedDate" ng-click="handleDateSelection()"/>
         </div>
 
@@ -34,16 +35,54 @@
             </select>
         </div>
 
+        <div class="col-lg-12 col-md-12 col-sm-12 no-student" ng-if="noStudent">
+            <span class="alert alert-danger">No students attendance on the chosen criteria.</span>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 attendance-table" ng-hide="attendanceList.length == 0">
+            <table id="attendance" class="display table table-striped table-hover dt-responsive" cellspacing="0"
+                   width="100%">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Class</th>
+                    <th>Student Nbr.</th>
+                    <th>Attended?</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Class</th>
+                    <th>Student Nbr.</th>
+                    <th>Attended?</th>
+                </tr>
+                </tfoot>
+
+                <tbody>
+                <tr ng-repeat="attendance in attendanceList" ng-class="attendance.presence?'success':'danger'">
+                    <td>{{attendance.student.firstName}}</td>
+                    <td>{{attendance.student.surname}}</td>
+                    <td>{{attendance.student.registeredTo}}</td>
+                    <td>{{attendance.student.studentNumber}}</td>
+                    <td>
+                        {{attendance.presence ? 'Present' : 'Absent'}}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
         <div class="form-group viewReport">
             <div class="col-sm-12">
-                <button type="submit" class="btn btn-primary btn-lg" ng-disabled="canNotViewReport" ng-click="viewReport()">
+                <button type="submit" class="btn btn-primary btn-lg" ng-disabled="canNotViewReport"
+                        ng-click="viewReport()">
                     View report
                 </button>
                 <button type="submit" class="btn btn-default btn-lg" ng-click="goBack()">Cancel</button>
             </div>
         </div>
-
-
 
 
     </div>

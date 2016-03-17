@@ -133,6 +133,8 @@ controllers.controller('ReportsCtrl', ['$scope', '$http', '$interval', '$locatio
     $scope.showTerms = false;
     $scope.canNotViewReport = true;
     var classToReport, reportType;
+    $scope.attendanceList = [];
+    $scope.noStudent = false;
 
     $scope.handleClassSelection = function () {
         $scope.showReportType = true;
@@ -162,12 +164,15 @@ controllers.controller('ReportsCtrl', ['$scope', '$http', '$interval', '$locatio
     };
 
     $scope.viewReport = function () {
+
         if ($scope.showDate == true) {
             var _date = $filter('date')(new Date($scope.selectedDate), 'yyyy-MM-dd');
             $http.get('/attendance?className=' + classToReport + '&attendanceDate=' + _date).success(function (data) {
                 if (data.length > 0) {
-                    console.log(data);
+                    $scope.attendanceList = data;
                 } else {
+                    $scope.attendanceList = [];
+                    $scope.noStudent = true;
                 }
             });
         } else if ($scope.showTerms == true) {
