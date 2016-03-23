@@ -179,12 +179,46 @@ controllers.controller('ReportsCtrl', ['$scope', '$http', '$interval', '$locatio
             var selectedTerm = $scope.termSelected;
             $http.get('/attendance?className=' + classToReport + '&term=' + selectedTerm).success(function (data) {
                 if (data.length > 0) {
-                    console.log(data);
-                } else {
+                    var list = data;
+                    var duplicateAttendanceList = data;
+                    _.each(list, function (value) {
+                        var present = 0;
+                        var absent = 0;
+                        _.each(duplicateAttendanceList, function (duplicateValue) {
+                            if (angular.equals(value, duplicateValue)) {
+                                if (value.presence == true) {
+                                    present++;
+                                }
 
+                                if (value.presence = false) {
+                                    absent++;
+                                }
+                            }
+                        });
+
+                        var attendance = {
+                            studentNumber: value.student.studentNumber,
+                            student: value.student,
+                            presence: present,
+                            absence: absent
+                        };
+
+                        $scope.attendanceList.push(attendance);
+                    });
+
+                    //remove duplicate
+
+                    $scope.attendanceList = _.uniq($scope.attendanceList, function (item, key, studentNumber) {
+                        return item.studentNumber;
+                    });
+
+                } else {
+                    $scope.attendanceList = [];
+                    $scope.noStudent = true;
                 }
             });
         }
+
     };
 
     $scope.goBack = function () {

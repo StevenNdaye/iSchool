@@ -30,8 +30,7 @@ public class AttendanceController {
     public List<Attendance> getAttendanceListForASpecificDate(@RequestParam("className") String className,
                                                               @RequestParam("attendanceDate")
                                                               String attendanceDate) {
-        List<Attendance> attendanceListBy = attendanceService.getAttendanceListBy(className, toDate(attendanceDate));
-        return attendanceListBy;
+        return attendanceService.getAttendanceListBy(className, toDate(attendanceDate));
     }
 
 
